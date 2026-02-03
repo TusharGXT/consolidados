@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Promored S.A.", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "BLANQUEAMIENTO", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/yIwNLOSoZKlp-Fotomontaje-Cabecera-Sintra-Clorox-Lavanda-Sin-Cenefa.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/tBSIfGazwUbd-Key-Visual-Clorox-Lavanda.jpg", "localesCsv": "121, 122, 126, 127, 143, 279, 32, 33, 35, 42, 425, 456, 459, 518, 57, 58, 608, 616, 626, 631, 635, 679, 682, 686, 693, 72, 73, 739, 748, 75, 76, 79, 80, 81, 83, 85, 87, 88, 89, 91, 92, 929, 945, 95, 96, 978, 98"}];
-const localesPorElemento = {"LATERAL CABECERA": ["121", "122", "126", "127", "143", "279", "32", "33", "35", "42", "425", "456", "459", "518", "57", "58", "608", "616", "626", "631", "635", "679", "682", "686", "693", "72", "73", "739", "748", "75", "76", "79", "80", "81", "83", "85", "87", "88", "89", "91", "92", "929", "945", "95", "96", "978", "98"]};
+const elementos          = [{"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "BLANQUEAMIENTO", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/yIwNLOSoZKlp-Fotomontaje-Cabecera-Sintra-Clorox-Lavanda-Sin-Cenefa.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/tBSIfGazwUbd-Key-Visual-Clorox-Lavanda.jpg", "locales": ["32", "33", "35", "57", "58", "73", "81", "83", "89", "91", "92", "96", "98", "121", "279", "425", "459", "679", "693", "739", "748", "929", "978"]}, {"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "BLANQUEAMIENTO", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/xBNcK8WDlxmK-Fotomontaje-Cabecera-Acrilico-Clorox-Lavanda-Sin-cenefa.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/vdmzTgPL5mvM-Key-Visual-Clorox-Lavanda.jpg", "locales": ["42", "72", "75", "76", "79", "80", "85", "87", "88", "95", "122", "126", "127", "143", "456", "518", "608", "616", "626", "631", "635", "682", "686", "945"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

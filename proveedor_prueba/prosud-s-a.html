@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "PROSUD S.A", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "DULCE & PRESERVANTES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/CZUQ9DE8oInv-Montaje_AMC_Walmart-QR.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/fUv29E3NkJDe-Montaje_AMC_Walmart-QR.jpg", "localesCsv": "126, 182, 32, 33, 35, 36, 38, 39, 42, 425, 426, 456, 46, 602, 62, 632, 682, 684, 72, 73, 75, 76, 84, 88, 92, 98"}];
-const localesPorElemento = {"MINI CABECERA": ["126", "182", "32", "33", "35", "36", "38", "39", "42", "425", "426", "456", "46", "602", "62", "632", "682", "684", "72", "73", "75", "76", "84", "88", "92", "98"]};
+const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "DULCE & PRESERVANTES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/CZUQ9DE8oInv-Montaje_AMC_Walmart-QR.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/fUv29E3NkJDe-Montaje_AMC_Walmart-QR.jpg", "locales": ["32", "33", "35", "36", "38", "39", "42", "46", "62", "72", "73", "75", "76", "84", "88", "92", "98", "126", "182", "425", "426", "456", "602", "632", "682", "684"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

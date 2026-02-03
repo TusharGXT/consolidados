@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Softys Chile SpA.", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "HIGIENE FEMENINA - PROTECCION", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/Fh9QzTPol0fT-fotomontaje.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/EHQeioHehNBk-KV.jpg", "localesCsv": "120, 46, 654, 72, 736"}];
-const localesPorElemento = {"MINI CABECERA": ["120", "46", "654", "72", "736"]};
+const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "HIGIENE FEMENINA - PROTECCION", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/Fh9QzTPol0fT-fotomontaje.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/EHQeioHehNBk-KV.jpg", "locales": ["46", "72", "120", "654", "736"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

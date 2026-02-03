@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Colgate-Palmolive", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "DESODORANTE-ANTITRANSPIRANTE", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/H9M6RIqVKtNT-foto-montaje-Deos.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/mdwdxsSffb5e-Render-Deos.png", "localesCsv": "120, 121, 122, 125, 126, 127, 137, 143, 182, 244, 33, 36, 37, 41, 425, 426, 44, 456, 457, 459, 48, 57, 58, 602, 607, 608, 616, 618, 620, 626, 628, 631, 635, 654, 655, 670, 671, 679, 682, 693, 697, 71, 72, 73, 736, 739, 747, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 88, 89, 91, 92, 929, 94, 945, 95, 952, 96, 97, 978, 98, 983, 985, 99, 993"}];
-const localesPorElemento = {"LATERAL CABECERA": ["120", "121", "122", "125", "126", "127", "137", "143", "182", "244", "33", "36", "37", "41", "425", "426", "44", "456", "457", "459", "48", "57", "58", "602", "607", "608", "616", "618", "620", "626", "628", "631", "635", "654", "655", "670", "671", "679", "682", "693", "697", "71", "72", "73", "736", "739", "747", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "88", "89", "91", "92", "929", "94", "945", "95", "952", "96", "97", "978", "98", "983", "985", "99", "993"]};
+const elementos          = [{"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "DESODORANTE-ANTITRANSPIRANTE", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/H9M6RIqVKtNT-foto-montaje-Deos.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/mdwdxsSffb5e-Render-Deos.png", "locales": ["48", "57", "73", "76", "78", "79", "82", "84", "85", "91", "92", "120", "122", "125", "126", "127", "137", "143", "182", "426", "456", "457", "602", "607", "620", "626", "628", "631", "635", "654", "655", "670", "671", "679", "693", "697", "739", "747", "929"]}, {"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "PASTAS", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/Utk6I2ORPIVL-foto-montaje-total.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/YoNL1Tjw7IRB-Render-total.png", "locales": ["33", "36", "37", "41", "44", "57", "58", "71", "72", "75", "77", "80", "81", "82", "83", "84", "88", "89", "91", "92", "94", "95", "96", "97", "98", "99", "121", "122", "143", "182", "244", "425", "457", "459", "608", "616", "618", "626", "635", "671", "679", "682", "736", "739", "929", "945", "952", "978", "983", "985", "993"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

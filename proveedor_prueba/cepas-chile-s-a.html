@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Cepas Chile S.A.", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "ESPIRITUOSOS", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/lGS2VqXbEhol-FIREBALL-QR.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/FNZF9bGa7bcs-FIREBALL-QR.jpg", "localesCsv": "120, 126, 127, 143, 182, 33, 35, 39, 41, 42, 44, 456, 459, 46, 57, 58, 602, 607, 618, 620, 626, 631, 655, 682, 684, 686, 697, 71, 73, 747, 76, 78, 79, 82, 83, 85, 89, 92, 94, 97, 98, 99"}];
-const localesPorElemento = {"MINI CABECERA": ["120", "126", "127", "143", "182", "33", "35", "39", "41", "42", "44", "456", "459", "46", "57", "58", "602", "607", "618", "620", "626", "631", "655", "682", "684", "686", "697", "71", "73", "747", "76", "78", "79", "82", "83", "85", "89", "92", "94", "97", "98", "99"]};
+const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "ESPIRITUOSOS", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/lGS2VqXbEhol-FIREBALL-QR.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/FNZF9bGa7bcs-FIREBALL-QR.jpg", "locales": ["35", "39", "44", "46", "57", "58", "73", "79", "83", "92", "120", "143", "459", "618", "655"]}, {"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "ESPIRITUOSOS", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/rhDEVyBPs7du-bacardi-QR.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/PmhWb8K1LlSb-bacardi-QR.jpg", "locales": ["33", "41", "58", "71", "78", "82", "83", "98", "182", "459", "602", "607", "626", "631", "747"]}, {"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "LICORES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/DopgmsLzG1SJ-1882.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/3VXq2fU4iCEi-1882.png", "locales": ["39", "85", "94", "97", "120", "126", "127", "182", "456", "626", "682", "697"]}, {"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "LICORES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/aVFdQdGZoL3R-LIVENZA-QR.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/6Snjt24auEN2-LIVENZA-QR.jpg", "locales": ["33", "39", "42", "44", "57", "58", "76", "78", "83", "89", "92", "99", "126", "127", "602", "620", "655", "684", "686", "747"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

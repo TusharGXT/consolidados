@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Importadora exportadora comercializadora y distribuidora oversea partn", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "EXHIBIDOR LATERAL", "medidas": "MÁXIMO: 30 x 15 x 40 cms.", "piezas": 2, "categoria": "ORAL - ENJUAGUE", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/kE3WqkL6Uq5e-PHOTO-2025-11-19-13-27-15.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/tWo6VOcpo89S-PHOTO-2025-11-19-13-27-15.jpg", "localesCsv": "126, 127, 137, 244, 279, 32, 33, 35, 36, 39, 42, 45, 456, 457, 46, 48, 49, 53, 54, 606, 608, 616, 618, 62, 620, 631, 632, 635, 66, 670, 671, 679, 682, 693, 73, 736, 748, 75, 76, 77, 78, 79, 798, 82, 83, 84, 85, 86, 87, 929, 94, 945, 952, 96, 978, 98, 983, 985, 988, 99"}];
-const localesPorElemento = {"EXHIBIDOR LATERAL": ["126", "127", "137", "244", "279", "32", "33", "35", "36", "39", "42", "45", "456", "457", "46", "48", "49", "53", "54", "606", "608", "616", "618", "62", "620", "631", "632", "635", "66", "670", "671", "679", "682", "693", "73", "736", "748", "75", "76", "77", "78", "79", "798", "82", "83", "84", "85", "86", "87", "929", "94", "945", "952", "96", "978", "98", "983", "985", "988", "99"]};
+const elementos          = [{"nombre": "EXHIBIDOR LATERAL", "medidas": "MÁXIMO: 30 x 15 x 40 cms.", "piezas": 2, "categoria": "ORAL - ENJUAGUE", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/kE3WqkL6Uq5e-PHOTO-2025-11-19-13-27-15.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/tWo6VOcpo89S-PHOTO-2025-11-19-13-27-15.jpg", "locales": ["32", "33", "35", "36", "39", "42", "45", "46", "48", "49", "53", "54", "62", "66", "73", "75", "76", "77", "78", "79", "82", "83", "84", "85", "86", "87", "94", "96", "98", "99", "126", "127", "137", "244", "279", "456", "457", "606", "608", "616", "618", "620", "631", "632", "635", "670", "671", "679", "682", "693", "736", "748", "798", "929", "945", "952", "978", "983", "985", "988"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

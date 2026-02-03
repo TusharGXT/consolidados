@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Pisa Farmaceutica de Chile", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "BEBIDAS - HIDRATACI?N - ENERG?A", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/xz6mBoqywMnQ-Montaje-mini-cabecera-Lider.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/Vpm4w50deUlt-KV-mini-cabecera-Lider.jpg", "localesCsv": "120, 182, 32, 33, 35, 38, 425, 45, 456, 457, 46, 48, 49, 518, 55, 607, 620, 654, 679, 686, 73, 76, 78, 83, 84, 85, 94, 96, 98, 99"}];
-const localesPorElemento = {"MINI CABECERA": ["120", "182", "32", "33", "35", "38", "425", "45", "456", "457", "46", "48", "49", "518", "55", "607", "620", "654", "679", "686", "73", "76", "78", "83", "84", "85", "94", "96", "98", "99"]};
+const elementos          = [{"nombre": "MINI CABECERA", "medidas": "MÁXIMO: 40x20x145 cm.", "piezas": 1, "categoria": "BEBIDAS - HIDRATACI?N - ENERG?A", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/xz6mBoqywMnQ-Montaje-mini-cabecera-Lider.jpg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/Vpm4w50deUlt-KV-mini-cabecera-Lider.jpg", "locales": ["32", "33", "35", "38", "45", "46", "48", "49", "55", "73", "76", "78", "83", "84", "85", "94", "96", "98", "99", "120", "182", "425", "456", "457", "518", "607", "620", "654", "679", "686"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

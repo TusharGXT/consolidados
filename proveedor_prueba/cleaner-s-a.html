@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Cleaner S.A", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "DETERGENTES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/kiy3JDty5tOp-CABECERA-WM-CON-QR.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/xWdMAhPQGvRS-KV-BIO-LIQUIDO-H2-2025-2.jpg", "localesCsv": "35, 41, 48, 49, 53, 55, 57, 58, 602, 632, 73, 81, 83, 89, 91, 92, 94, 96, 97, 99"}];
-const localesPorElemento = {"LATERAL CABECERA": ["35", "41", "48", "49", "53", "55", "57", "58", "602", "632", "73", "81", "83", "89", "91", "92", "94", "96", "97", "99"]};
+const elementos          = [{"nombre": "LATERAL CABECERA", "medidas": "MÁXIMO: 45x160 cm, 40x170 cm.", "piezas": 1, "categoria": "DETERGENTES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/kiy3JDty5tOp-CABECERA-WM-CON-QR.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/xWdMAhPQGvRS-KV-BIO-LIQUIDO-H2-2025-2.jpg", "locales": ["35", "41", "48", "49", "53", "55", "57", "58", "73", "81", "83", "89", "91", "92", "94", "96", "97", "99", "602", "632"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

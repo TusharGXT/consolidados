@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Monarch", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "1-2 PALLETS", "medidas": "No Adjunta", "piezas": 1, "categoria": "ALIMENTOS INTERNACIONALES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/GxD2H6rcAGTI-Fotomontaje.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/NGhxT18SCS0m-Key-Visual.jpg", "localesCsv": "120, 121, 32, 33, 35, 44, 46, 48, 49, 57, 58, 72, 73, 75, 76, 83, 89, 91, 92, 94, 95, 96, 97, 98, 99"}];
-const localesPorElemento = {"1-2 PALLETS": ["120", "121", "32", "33", "35", "44", "46", "48", "49", "57", "58", "72", "73", "75", "76", "83", "89", "91", "92", "94", "95", "96", "97", "98", "99"]};
+const elementos          = [{"nombre": "1-2 PALLETS", "medidas": "No Adjunta", "piezas": 1, "categoria": "ALIMENTOS INTERNACIONALES", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/GxD2H6rcAGTI-Fotomontaje.png", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/NGhxT18SCS0m-Key-Visual.jpg", "locales": ["32", "33", "35", "44", "46", "48", "49", "57", "58", "72", "73", "75", "76", "83", "89", "91", "92", "94", "95", "96", "97", "98", "99", "120", "121"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');

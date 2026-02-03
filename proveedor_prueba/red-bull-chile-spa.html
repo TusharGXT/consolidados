@@ -267,8 +267,8 @@ header { background: var(--primary); color: white; padding: 16px; text-align: ce
 
 <script>
 const __PROVIDER__       = {"proveedor": "Red Bull Chile SpA", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)"};
-const elementos          = [{"nombre": "ISLA", "medidas": "MÁXIMO: 100 x 120 x 150 cm.", "piezas": 1, "categoria": "BEBIDAS - HIDRATACI?N - ENERG?A", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/fhEF2TfFZFdi-Isla-Red-Bull-VCA-2026.jpeg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/ETnfdqGt4sWZ-KV-Red-Bull-VCA-2026.jpeg", "localesCsv": "518, 58, 84"}];
-const localesPorElemento = {"ISLA": ["518", "58", "84"]};
+const elementos          = [{"nombre": "ISLA", "medidas": "MÁXIMO: 100 x 120 x 150 cm.", "piezas": 1, "categoria": "BEBIDAS - HIDRATACI?N - ENERG?A", "vigencia": "Etapa 1 (08/01/26 → 10/02/26)", "fotomontaje": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/fhEF2TfFZFdi-Isla-Red-Bull-VCA-2026.jpeg", "keyvisual": "https://walmartconnect.cl/wp-content/uploads/forminator/818_69591769e92703498e05efc8dbca5e38/uploads/ETnfdqGt4sWZ-KV-Red-Bull-VCA-2026.jpeg", "locales": ["58", "84", "518"]}];
+const localesPorElemento = {};
 
 const cardsRoot   = document.getElementById('cardsRoot');
 const modal       = document.getElementById('modalLocales');
@@ -344,7 +344,7 @@ function renderCards(){
   cardsRoot.innerHTML='';
 
   elementos.forEach(el=>{
-    const locales=localesPorElemento[el.nombre]||[];
+    const locales = el.locales || [];
     if(filtro && !locales.includes(filtro)) return;
 
     const card=document.createElement('div');
