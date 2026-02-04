@@ -326,17 +326,26 @@ document.addEventListener('keydown', e => {
 /* SELECT LOCALES */
 function construirSelectLocales(){
   const setLocales = new Set();
-  Object.values(localesPorElemento).forEach(arr=> arr.forEach(l=> setLocales.add(l)));
+
+  elementos.forEach(el=>{
+    (el.locales || []).forEach(l=>{
+      if(l !== null && l !== undefined && l !== "")
+        setLocales.add(String(l));
+    });
+  });
 
   selectLocal.innerHTML = '<option value="">Todos los locales</option>';
 
-  [...setLocales].sort().forEach(l=>{
-    const op=document.createElement('option');
-    op.value=l;
-    op.textContent='Local '+l;
-    selectLocal.appendChild(op);
-  });
+  [...setLocales]
+    .sort((a,b)=> a.localeCompare(b, undefined, {numeric:true}))
+    .forEach(l=>{
+      const op=document.createElement('option');
+      op.value=l;
+      op.textContent='Local ' + l;
+      selectLocal.appendChild(op);
+    });
 }
+
 
 /* RENDER */
 function renderCards(){
@@ -345,7 +354,7 @@ function renderCards(){
 
   elementos.forEach(el=>{
     const locales = el.locales || [];
-    if (filtro && !locales.map(String).includes(String(filtro))) return;
+    if (filtro && !locales.map(l => String(l).trim()).includes(String(filtro).trim())) return;
 
     const card=document.createElement('div');
     card.className='card';
