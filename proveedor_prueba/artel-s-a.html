@@ -345,7 +345,7 @@ function renderCards(){
 
   elementos.forEach(el=>{
     const locales = el.locales || [];
-    if(filtro && !locales.includes(filtro)) return;
+    if (filtro && !locales.map(String).includes(String(filtro))) return;
 
     const card=document.createElement('div');
     card.className='card';
